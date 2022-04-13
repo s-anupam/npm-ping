@@ -9,4 +9,4 @@ jobs:
     steps:
       - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
 
-      - run: npm ping --registry https://npm.pkg.github.com
+      - run: npx npm ping --registry https://npm.pkg.github.com
