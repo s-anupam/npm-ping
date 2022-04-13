@@ -9,4 +9,6 @@ jobs:
     steps:
       - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
 
+      - run: npx npm@6.14.16 version
+
       - run: npx npm@6.14.16 ping --registry https://npm.pkg.github.com
