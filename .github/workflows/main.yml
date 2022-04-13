@@ -6,9 +6,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        version: ["5.10.0", "6.14.16", "7.24.2", "8.6.0"]
+
     steps:
       - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
 
-      - run: npx npm@6.14.16 version
+      - run: npx npm@${{ matrix.version }} version
 
-      - run: npx npm@6.14.16 ping --registry https://npm.pkg.github.com
+      - run: npx npm@${{ matrix.version }} ping --registry https://npm.pkg.github.com
