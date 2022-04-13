@@ -1,0 +1,10 @@
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: npm ping --registry https://npm.pkg.github.com
