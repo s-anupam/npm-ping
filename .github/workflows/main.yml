@@ -17,4 +17,5 @@ jobs:
 
       - run: npx npm@${{ matrix.version }} version
 
-      - run: npx npm@${{ matrix.version }} ping --registry ${{ matrix.registry }}
+      - run: npx npm@${{ matrix.version }} i ping --registry ${{ matrix.registry }}
+        if: always()
