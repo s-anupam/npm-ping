@@ -9,6 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        registry: ["https://npm.pkg.github.com", "https://npm.pkg.github.com/${{ github.repository_owner }}"]
         version: ["6.14.16", "7.24.2", "8.6.0"]
 
     steps:
@@ -16,4 +17,4 @@ jobs:
 
       - run: npx npm@${{ matrix.version }} version
 
-      - run: npx npm@${{ matrix.version }} ping --registry https://npm.pkg.github.com
+      - run: npx npm@${{ matrix.version }} ping --registry ${{ matrix.registry }}
